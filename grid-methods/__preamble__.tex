@@ -1,0 +1,43 @@
+\documentclass{article}
+
+\usepackage[a4paper,
+            left=2cm,
+            right=1cm,
+            top=2cm,
+            bottom=2cm]{geometry}
+
+\usepackage{xltxtra}
+\usepackage{polyglossia}
+\usepackage{graphicx}
+\usepackage{subfiles}
+
+\usepackage{amsmath,
+            unicode-math,
+            tensor,
+            algorithm,
+            hyperref
+}
+
+\setmainlanguage{russian}
+\setotherlanguage{english}
+\setkeys{russian}{babelshorthands=true}
+\defaultfontfeatures{Ligatures=TeX}
+
+\setmainfont{Calibri}
+\setromanfont{Calibri}
+\setsansfont{Calibri}
+\setmathfont{Cambria Math}
+
+\newfontfamily{\cyrillicfont}{Calibri} 
+\newfontfamily{\cyrillicfontrm}{Calibri}
+\newfontfamily{\cyrillicfontsf}{Calibri}
+\newfontfamily{\cyrillicfonttt}{Consolas}
+
+\addto\captionsrussian{
+  \renewcommand{\figurename}{Рис.}
+  \renewcommand{\tablename}{Табл.}
+  \renewcommand{\proofname}{Док-во}
+}
+
+\graphicspath{{./img/}}
+\everymath{\displaystyle}

@@ -1,0 +1,13 @@
+## LaTeX
+
+# Compiled *.pdf files
+*.pdf
+
+# Build files
+*.aux
+*.log
+*.synctex.gz
+build/
+
+# Personal
+*_p.*

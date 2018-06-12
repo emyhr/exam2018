@@ -1,0 +1,15 @@
+## C++
+
+# User-specific files
+.clang-format
+cmake-build-debug/
+cmake-build-release/
+.idea/
+*.exe
+
+## Misc
+
+# Personal files
+*_p.*
+links/
+pdf/
