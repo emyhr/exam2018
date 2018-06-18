@@ -13,3 +13,5 @@ cmake-build-release/
 *_p.*
 links/
 pdf/
+
+*.out
