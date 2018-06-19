@@ -4,6 +4,56 @@
 
 \section{Многошаговые методы Адамса-Башфорда для численного решения задачи Коши с нормальным ОДУ, пример двухшагового метода Адамса- Башфорда}
 
+Рассмотрим задачу Коши:
 
+\begin{gather}\label{23.1}
+\begin{cases}
+\frac{dy}{d\tau} = f \left( \tau, y \right), \ \tau \in \left( 0;T \right) \\
+y\left(0\right) = y_0
+\end{cases}
+\end{gather}
 
+где $f$ - достаточно гладкая функция.
+
+Для численного решения задачи \ref{23.1} выбрана равномерная сетка $A = \langle 0 = \tau_0, \tau_1,..., \tau_k = T \rangle$ шага $h = \frac{T}{k}$ и одним из методов Рунге-Кутта получены в узлах $\tau_0, \tau_1, ..., \tau_n \ \left( n<k \right)$ приближённые значения $y_0, y_1,...,y_n$ решения задачи \ref{23.1}. Тогда для вычислеия приближённого значения $y_{n+1}$ в узле $\tau_{n+1}$ используют соотношения:
+
+\begin{equation}\label{23.2}
+y_{n+1} = y_n + \int_{\tau_n}^{\tau_{n+1}} f \left( \tau; y \left(\tau\right) \right) d\tau
+\end{equation}
+
+В $n$-шаговом методе Адамса-Башфорта в формуле \ref{23.2} функцию $f\left( \tau;y\left(\tau\right) \right)$ заменяют на интерполяционный полином Ньютона $\mathcal{L}_n = \mathcal{L}_n \left( \langle \tau_0, \tau_1,..., \tau_n \rangle, [ y_0,y_1,...,y_n \rangle \right)$, тем самым экстраполируя полином $\mathcal{L}_n$ на отрезок $ [\tau_n, \tau_{n+1}] $. Следовательно, соотношение \ref{23.2} принимает вид:
+
+\begin{equation}\label{23.3}
+y_{n+1} = y_n + \int_{\tau_n}^{\tau_{n+1}} \mathcal{L}_n \left(\tau\right)d\tau = y_n + \sum_{j=1}^{n} b_j y_{n-j}
+\end{equation}
+
+Аналогично для $m \in \langle n+2,..., k-1 \rangle$ получают
+
+\begin{equation}\label{23.4}
+y_{m+1} = y_m + \sum_{j=1}^{n} \beta_j y_{m-j}
+\end{equation}
+
+\paragraph{Двухмерный метод Адамса-Башфорта}
+
+Методом Рунге-Кутта получены значения $y_0$ и $y_1$ в узлах $\tau_0$ и $\tau_1$, соответственно.
+
+Используем полином $\mathcal{L}_2 \left( \langle \tau_0, \tau_1 \rangle; [ y_0,y_1 \rangle \right)$, где $\tau_1 = \tau_0 + h$.
+
+$$
+\mathcal{L}_1 \left( \tau\right) = \frac{\tau - \tau_1}{\tau_0 - \tau_1} y_0 + \frac{\tau - \tau_0}{\tau_1 - \tau_0}y_1
+$$
+
+$$
+\int_{\tau_1}^{\tau_2} \mathcal{L}_1 \left(\tau\right) d\tau = \int_{\tau_1}^{\tau_1+h} \mathcal{L}_1 \left(\tau\right) d\tau = - \frac{y_0}{h} \int_{\tau_1}^{\tau_1+h} \left( \tau - \tau_1 \right) d\tau + \frac{y_1}{h} \int_{\tau_1}^{\tau_1+h} \left( \tau - \tau_0\right)d\tau = 
+$$
+
+$$
+= - \frac{y_0}{h} \int_{0}^{h} \theta d\theta + \frac{y_1}{h} \int_{0}^{2h} \theta d\theta = \frac{\theta^2}{2} \big|^h_0 \left( - \frac{y_0}{h} \right) + \frac{\theta^2}{2}  \big|^{2h}_h \left( \frac{y_1}{h} \right) = - \frac{h}{2} y_0 + 2h y_1 - \frac{h y_1}{2} = \frac{h}{2} \left(3y_1 - y_0\right)
+$$
+
+Отсюда следует, что 
+
+$$
+y_{m+1} = y_m + \frac{h}{2} \left(3y_m - y_{m-1}\right), \ m = \overline{1,k-1}
+$$
 \end{document}

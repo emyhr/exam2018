@@ -45,12 +45,12 @@ V^0_i = \mu_i, \ i = \overline{0,m}; \ V^j_0 = \beta^j_1, \ V^j_m = \beta^j_2, \
 \begin{gather}\label{27.4}
 \begin{cases}
 V^j_i = U^j_i + \delta U^j_i, \ j=\overline{0,n}, \ i=\overline{1,m} \\
-{}^>\delta U^j = \[ \delta U^j_0, \delta U^j_1, ..., \delta U^j_m \rangle, \ j = \overline{0,m} \\
+{}^>\delta U^j = [ \delta U^j_0, \delta U^j_1, ..., \delta U^j_m \rangle, \ j = \overline{0,m} \\
 {}^>\delta U^0_j = {}^> O \in {}^> \mathbb{R}^{\left|B\right|} \left(B\right) \\
 \delta U^j_0 = \delta U^j_m = 0, \ j = \overline{0,n} \\
-{}^> \delta U = \[ {}^> \delta U^0, {}^> \delta U^1, ..., {}^> \delta U^n \rangle \in {}^>\left( {}^> \mathbb{R}^{\left| B \right|} \left(B\right) \right)^{\left|A\right|} \left(A\right) \\
+{}^> \delta U = [ {}^> \delta U^0, {}^> \delta U^1, ..., {}^> \delta U^n \rangle \in {}^>\left( {}^> \mathbb{R}^{\left| B \right|} \left(B\right) \right)^{\left|A\right|} \left(A\right) \\
 {}^> \varepsilon^j = \{ \varepsilon^j_0,\varepsilon^j_1, ..., \varepsilon^j_n \rangle \\
-{}^\varepsilon = \[ {}^>\varepsilon^0, {}^>\varepsilon^1, ..., {}^>\varepsilon^n \rangle \\
+{}^\varepsilon = [ {}^>\varepsilon^0, {}^>\varepsilon^1, ..., {}^>\varepsilon^n \rangle \\
 \left| \varepsilon^j_i \right| \leq \varepsilon = O \left( \tau, h^2 \right), \ h,\tau \rightarrow 0 \\
 \| {}^> \varepsilon^j \|  \leq \varepsilon, \ \| {}^>\varepsilon |\ \leq \varepsilon
 \end{cases}
@@ -139,13 +139,12 @@ $$
 
 Следовательно, схема \ref{27.2} аппроксимирует задачу \ref{27.1} и устойчива, т.е. согласно теореме Лакса - корректна.
 
-\begin{theorem}[о безусловной корректности неявной схемы]
+\paragraph{Теорема о безусловной корректности неявной схемы}
 	$$
 	\lim_{\tau, h \rightarrow 0} spl \left( C, {}^U \right) = V
 	$$
 	
-	и схема \ref{27.2} корректна.
-\end{theorem}
+	и схема \ref{27.2} корректна. $\#$
 
 В обозначениях \ref{27.4}, \ref{27.7} и \ref{27.8} схема \ref{27.2} принимает вид: ${}^> U^0 = {}^> \mu$.
 
@@ -158,7 +157,7 @@ H \cdot {}^> U^n = {}^> U^{n-1} - {}^> \beta^{n-1} + {}^>\beta^n + \tau {}^> f^n
 \end{cases}
 \end{gather}
 
-где ${}^> \beta^0 = {}^> 0, {}^> \beta^i = \[ \beta^i_1, 0 , ...,  0, \beta^i_2 \rangle$ и ${}^>f^i = \[ 0, f^i_1, ..., f^i_{m-1}, 0 \rangle$ для $i = \overline{1,n}$.
+где ${}^> \beta^0 = {}^> 0, {}^> \beta^i = [ \beta^i_1, 0 , ...,  0, \beta^i_2 \rangle$ и ${}^>f^i = [ 0, f^i_1, ..., f^i_{m-1}, 0 \rangle$ для $i = \overline{1,n}$.
 
 Вид \ref{27.11} поясняет название "неявная схема", так как для определения ${}^>U^{i+1} \in {}^> \mathbb{R}^{\left|B\right|} \left(B\right)$ требуется решить СЛАУ с матрицей $H$ и правйо частью ${}^>U^i - {}^>\beta^i + {}^> \beta^{i+1} + \tau \cdot {}^> f^{i+1}$. Такие СЛАУ решаются методом прогонки
 \end{document}
