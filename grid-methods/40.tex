@@ -4,6 +4,80 @@
 
 \section{Понятие монотонности (двуслойной) разностной схемы. Теорема Годунова и её следствие о признаке устойчивости монотонной схемы}
 
+На плоскости задана сетка $C = A \times B = \langle \left(x_k,t^n\right) = \left(hk,n\tau\right):k \in \mathbb{Z}, n = \overline{0,N} \rangle$ и сеточная функция ${}^>U = \langle U^n_k: k \in \mathbb{Z}, n = \overline{0,N} \rangle$, которая удовлетворяет конечно-разностной схеме:
 
+\begin{equation}\label{40.1}
+U^{n+1}_k = \sum_{m\in \mathbb{Z}} C_m U^n_{k+m}
+\end{equation}
 
+где $C_m \in \mathbb{R}$ для $\forall m \in \mathbb{Z}$ и $\sum_{m\in \mathbb{Z}} \left| C_m \right| < + \infty$.
+
+Таким образом, схема \ref{40.1} задаёт оператор сложной структуры.
+
+\textbf{Определение монотонной схемы}
+
+Схему \ref{40.1} называют \textit{монотонной}, если для монотонной последовательности $U^0_{(\cdot)} = \left( U^0_k \right)_{\mathbb{Z}}$ для $\forall n$ последовательность $U^n_{(\cdot)} = \left( U^n_k \right)_{\mathbb{Z}}$ является монотонной последовательностью того же типа монотонности.
+
+\paragraph{Теорема Годунова о критерии монотонности схемы}
+	Схема \ref{40.1} - монотонна $\Leftrightarrow \ C_m \geq 0$ для $\forall m \in \mathbb{Z}$.
+	
+\paragraph{Доказательство}
+
+\begin{itemize}
+	\item $\left( \Rightarrow - \text{необходимость} \right)$
+	Пусть схема \ref{40.1} монотонна. Предположим (доказательство от противного), что для некоторого $M \in \mathbb{Z}$ выполняется условие: $C_M < 0$. Тогда рассмотрим монотонно неубывающую функцию $U^0_{\left(\cdot\right)} = \left(U^0_k\right)_{\mathbb{Z}}$ вида:
+	
+	$$
+	U^0_k = 
+	\begin{cases}
+	1, if \ k \geq M \\
+	0, if \ k < M
+	\end{cases}
+	$$
+	
+	Тогда, согласно схеме \ref{40.1}:
+	
+	$$
+	U^1_0 = \sum_{m = M}^{+\infty} C_m, \ \ \ \ \
+	U^1_{-1} = \sum_{m = M+1}^{+\infty} C_m.
+	$$
+	
+	Отсюда получаем:
+	
+	$U^1_0 - U^1_{-1} = C_M < 0$ - противоречие с монотонностью схемы (функция $U^1_{\left(\cdot\right)} = \left(U^1_k\right)_{\mathbb{Z}}$ - не является монотонно неубывающей, но функция $U^0_{\left(\cdot\right)} = \left(U^0_k\right)_{\mathbb{Z}}$ монотонно не убывает).
+	
+	Полученное противоречие отвергает предполотожение, т.е. получаем, что $C_m \geq 0$ для $\forall m \in \mathbb{Z}$.
+	
+	\item $\left( \Leftarrow - \text{достаточность} \right)$
+	Пусть в схеме \ref{40.1} выполняется условие: $C_m \geq 0$ для $\forall m \in \mathbb{Z}$.
+	
+	Рассмотрим монотонно неубывающую функцию $U^n_{\left(\cdot\right)} = \left(U^n_k\right)_{\mathbb{Z}}$. Тогда для слоя $\left(n+1\right)$ и $k \in \mathbb{Z}$:
+	
+	$$
+	U^{n+1}_{k+1} = \sum_{m\in \mathbb{Z}} U^n_{k+1+m} C_m, \ \ \ \ \
+	U^{n+1}_k = \sum_{m\in \mathbb{Z}} U^n_{k+m} C_m.
+	$$
+	
+	Следовательно: $U^{n+1}_{k+1} - U^{n+1}_k = \sum_{m\in \mathbb{Z}} \left( U^n_{k+m+1} - U^n_{k+m} \right) C_m \geq 0$, так как функция $U^n_{\left(\cdot\right)}$ - монотонно неубывает и $C_m \geq 0$ для $\forall m \in \mathbb{Z}$. Следовательно, функция $U^{n+1}_{\left(\cdot\right)}$ - монотонна, если функция $U^n_{\left(\cdot\right)}$ - монотонна, т.е. схема \ref{40.1} монотонна. $\#$
+\end{itemize}
+
+\paragraph{Теорема о признаке устойчивости монотонной схемы}
+
+Пусть схема \ref{40.1} - монотонна, то есть в ней $C_m \geq 0$ для $\forall m \in \mathbb{Z}$ и $\sum_{m\in \mathbb{Z}} C_m = 1$. Тогда схема \ref{40.1} - устойчива.
+
+\paragraph{Доказательство}
+
+Для доказательства утверждения теоремы используем спектральный признак, полагая $U^n_k = e^{i \alpha k}$ и $U^{n+1}_k = \lambda \left(\alpha \right) e^{i\alpha k}$, где $k \in \mathbb{Z}$.
+
+Тогда, согласно монотонной схеме \ref{40.1} и условию теоремы, получим:
+
+$$
+U^{n+1}_k = \lambda e^{i\alpha k} = \sum_{m\in \mathbb{Z}} C_m U^n_{k+m} = \sum_{m\in \mathbb{Z}} C_m e^{i\alpha \left(k+m\right)} \Leftrightarrow \lambda = \sum_{m\in \mathbb{Z}} C_m e^{i\alpha m}
+$$
+
+где $C_m \geq 0$ для $\forall m \in \mathbb{Z}$, $\sum_{m\in \mathbb{Z}} C_m = 1$ и $e^{i\alpha m}$ - точка на окружности $\left| z \right| \leq 1$ на комплексной плоскости $\mathbb{C}$ для $\forall m \in \mathbb{Z}$.
+
+Следовательно, $\sum_{m\in \mathbb{Z}} C_m e^{i \alpha m}$ - выпуклая комбинация точек на окружности $\left|z\right|$, то есть для $\forall \alpha \in \left[ 0;\pi \right]$ следует, что $$\left|\lambda\left(\alpha\right)\right| = \left|\sum_{m\in \mathbb{Z}} C_m e^{i \alpha m}\right| \leq 1$$.
+
+Поэтому, согласно спектральному признаку (Неймана), монотонная схема \ref{40.1}, где $\sum_{m\in \mathbb{Z}} C_m = 1$ - устойчива. $\#$
 \end{document}
