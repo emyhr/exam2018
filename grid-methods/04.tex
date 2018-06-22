@@ -4,6 +4,12 @@
 
 \section{Теорема об интерполяционном полиноме Ньютона}
 
-
+Пусть $A = \left<\tau_0, \tau_1, \tau_2, ..., \tau_k\right>$ — квази-сетка $[a; b], \tau\in[a, b], \tau \notin A$ и $f\in \underline{C}^{k+1}([a; b], R)$, тогда
+\begin{gather*}
+f(\tau) = f(\tau_0) + f(\tau_0,\tau_1)(\tau-\tau_0) + f(\tau_0,\tau_1,\tau_2)(\tau-\tau_0)(\tau-\tau_1)+...+f(\tau_0,\tau_1,...,\tau_k)(\tau-\tau_0)...(\tau-\tau_k-1) +\\ +f(\tau,\tau_0,\tau_1,...,\tau_k)\Lambda_A(\tau),
+\end{gather*}
+где $\Lambda_A(\tau) = (\tau-\tau_0)(\tau-\tau_1)...(\tau-\tau_k)$ - A-сеточный полином,\\
+$f(\tau_0) + f(\tau_0,\tau_1)(\tau-\tau_0) + ... + f(\tau_0,\tau_1,...,\tau_k)(\tau-\tau_0)(\tau-\tau_1)...(\tau-\tau_{k-1}) = Z_n(\tau)$ — $A$-интерполяционный полином Лагранжа для $A$-сеточной функции $\hat{A}(f)$\\
+и $f(\tau,\tau_0,\tau_1,...,\tau_k)\Lambda_A(\tau) = \frac{f^{k+1}(\xi(\tau))}{(k+1)!}\Lambda_A(\tau) = R_k(\tau)$ - остаток интерполяции Лагранжа для H-сеточной функции $\hat{A}(f)$
 
 \end{document}
