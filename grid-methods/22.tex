@@ -4,6 +4,73 @@
 
 \section{Методы Рунге-Кутта численного решения задачи Коши для нормальной системы ОДУ и для ОДУ, разрешённого относительно старшей производной}
 
-
-
+Пусть $\;^>f = [f_1, f_2, ...,  f_n\rangle \in C^q([0; t] \times \;^>\mathbb{R}^n, \;^>\mathbb{R}^n)$ — гладкая векторная функция, где $f_i \in C^q([0; t] \times \;^>\mathbb{R}^n, \;^>\mathbb{R}^n)$ для $i = \overline{1, n}$.\\
+Рассмотрим задачу Коши дл\ нормальной системы ОДУ:
+\begin{equation}
+	\begin{cases}
+	\frac{d\;^>y}{d\tau} = \;^>f(\tau, \;^>y), \tau \in [a; b];
+	\;^>y(a) = \;^>C_0 =
+	\begin{pmatrix}
+	c_1\\
+	c_2
+	.\\
+	.\\
+	.\\
+	c_n
+	\end{pmatrix}
+	\in \;^>\mathbb{R}.
+	\end{cases}
+	\label{22-1}
+\end{equation}
+Для численного решения задачи $\ref{22-1}$ введём на $[a; b]$ схему равномерных сеток $A_{(.)} = (A_k)_{\mathbb{N}}$,\\
+где $A_k = \langle a = \tau_0, \tau_1, ..., \tau_k = b\rangle$ и $h = stp(A_k) = \frac{b-a}{k}$. Согласно этой схеме сеток для численного решения задачи $\ref{22-1}$ используем метод Рунге-Кутта различных порядков $m \in \mathbb{N}$. Эти методы аналогичны методам Рунге-Кутта, которые используются для задач Коши с нормальным ОДУ.\\
+\textbf{m = 1} Метод Эйлера\\
+Конечно-разностная схема метода:
+\begin{equation}
+	\begin{cases}
+	\;^>u_0 = \;^>c_0;\\
+	\;^>u_{i+1} = \;^>u_i + h \;^>w_1(\tau_0 \;^>u_i; h).
+	\end{cases}
+	\label{22-2}
+\end{equation}
+\textbf{m = 2} Метод Эйлера-Коши
+\begin{equation}
+	y_{i+1} = y_i + \int \limits_{\tau_i}^{\tau_i + h} f(\tau, y(\tau))d\tau = y_i + h(\frac{1}{2}f(\tau_i, y_i) + \frac{1}{2}(\tau_i + h_i, y_{i+1})) =\\
+	= y_i + h[\frac{1}{2}f(\tau_i, y_i) + \frac{1}{2}f(\tau_i+h, y_i+hf(\tau_i, y_i))] + o(h^2)
+\end{equation}
+Конечно-разностная схема:
+\begin{equation}
+	\begin{cases}
+	\;^>u_0 = \;^>c_0;\\
+	\;^>u_{i+1} = \;^>u_i + h(\frac{1}{2}\;^>w_1 + \frac{1}{2}\;^>w_2), \; i = \overline{0, k-1}.
+	\end{cases}
+\end{equation}
+где 
+\begin{equation}
+	\begin{cases}
+	\;^>w_1 = \;^w_1(\tau, \;^>u, h) = \;^>f(\tau, \;^>u) =
+	\begin{pmatrix}
+	f_1(\tau, \;^>u)\\
+	.\\
+	.\\
+	.\\
+	f_n(\tau, \;^>u)
+	\end{pmatrix};\\
+	\;^>w_2 = \;^>f(\tau+h, \;^>u + h\;^>w_1).
+	\end{cases}
+\end{equation}
+\textbf{m = 4} Конечно-разностная схема:\\
+\begin{equation}
+	\;^>u_0 = \;^>c_0;\\
+	\;^>u_{i+1} = \;^>u_i + h(\frac{1}{6}\;^>w_1  + \frac{2}{6}\;^>w_2 + \frac{2}{6}\;^>w_3 + \frac{1}{6}\;^>w_4), \; i = \overline{0, k-1},
+\end{equation}
+где для $\;^>u = \;^>u(\tau):$
+\begin{equation}
+	\begin{cases}
+	\;^>w_1 = \;^>w_1(\tau, \;^>u, h) = \;^>f(\tau, \;^>u);\\
+	\;^>w_2 = f(\tau + \frac{1}{2}h, \;^>u + \frac{1}{2}h\;^>w_1) = \;^>w_2(\tau, \;^>u, h);\\
+	\;^>w_3 = f(\tau + \frac{1}{2}h, \;^>u + \frac{1}{2}h\;^>w_2) = \;^>w_3(\tau, \;^>u, h);\\
+	\;^>w_4 = f(\tau + h, \;^>u + \;^>w_3) 
+	\end{cases}
+\end{equation}
 \end{document}
